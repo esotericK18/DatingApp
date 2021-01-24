@@ -37,6 +37,10 @@ export class RegisterComponent implements OnInit {
       confirmPassword: ['', [Validators.required, this.matchValues('password')]],
     });
 
+    //listen to password value change and update validation of confirm password
+    this.registerForm.controls.password.valueChanges.subscribe(() => {
+      this.registerForm.controls.confirmPassword.updateValueAndValidity();
+    });
   }
 
   matchValues(matchTo: string): ValidatorFn {
