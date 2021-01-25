@@ -20,6 +20,7 @@ export class AccountsService {
         const user = response;
         if (user) {
           this.setCurrentUser(user);
+          return user;
         }
       })
     )
