@@ -24,6 +24,7 @@ export class MemberDetailComponent implements OnInit, OnDestroy {
   activeTab: TabDirective;
   messages: Message[] = [];
   user: User;
+  
   constructor(public presence: PresenceService, private route: ActivatedRoute,
     private messageService: MessageService, private accountService: AccountsService,
     private router: Router) {

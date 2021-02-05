@@ -36,7 +36,6 @@ namespace API.SignalR
                 if (!OnlineUsers.ContainsKey(username)) return Task.FromResult(isOffline);
 
                 OnlineUsers[username].Remove(connectionid);
-
                 if (OnlineUsers[username].Count == 0)
                 {
                     OnlineUsers.Remove(username);

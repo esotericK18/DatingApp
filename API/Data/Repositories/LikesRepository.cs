@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Data.Repositories
 {
-    public class LikesRepository : ILikeRepository
+    public class LikesRepository : ILikesRepository
     {
         private readonly DataContext _context;
         public LikesRepository(DataContext context)
@@ -60,11 +60,6 @@ namespace API.Data.Repositories
         {
             return await _context.Users.Include(x => x.LikedUsers)
                 .FirstOrDefaultAsync(x => x.Id == userId);
-        }
-
-        public async Task<bool> SaveAllAsync()
-        {
-            return await _context.SaveChangesAsync() > 0; //return the number of changes from DB
         }
     }
 }

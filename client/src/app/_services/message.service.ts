@@ -47,8 +47,7 @@ export class MessageService {
               message.dateRead = new Date(Date.now());
             }
           })
-          this.messageThreadSource.next([...messages]);
-
+          this.messageThreadSource.next([...messages])
         })
       }
 
@@ -61,9 +60,10 @@ export class MessageService {
       this.hubConnection.stop();
     }
   }
+
   getMessages(pageNumber: number, pageSize: number, container: string) {
     let params = getPaginationHeaders(pageNumber, pageSize);
-    params = params.append('container', container);
+    params = params.append('Container', container);
 
     return getPaginatedResult<Partial<Message[]>>(this.baseUrl + 'messages', params, this.http);
   }

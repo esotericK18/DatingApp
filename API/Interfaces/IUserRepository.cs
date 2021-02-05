@@ -9,7 +9,6 @@ namespace API.Interfaces
     public interface IUserRepository
     {
         void Update(AppUser user);
-        Task<bool> SaveAllAsync();
         Task<IEnumerable<AppUser>> GetUsersAsync();
         Task<AppUser> GetUserByIdAsync(int id);
         Task<AppUser> GetUserByIdForLastActivityAsync(int id);
@@ -17,6 +16,7 @@ namespace API.Interfaces
         Task<PagedList<MemberDto>> GetMembersAsync(UserParams userParams);
         Task<MemberDto> GetMemberByUserNameAsync(string username);
         Task<MemberDto> GetMemberByIdAsync(int id);
+        Task<string> GetUserGenderAsync(string username);
 
 
     }

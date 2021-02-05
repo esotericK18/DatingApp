@@ -43,7 +43,7 @@ namespace API
 
             services.AddIdentityServices(_config); //custom service extention
             ConfigureSwaggerService(services);
-            services.AddSignalR();
+            services.AddSignalR( o => o.EnableDetailedErrors = true);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
