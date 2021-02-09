@@ -20,6 +20,7 @@ namespace API.Controllers
             return "Secret";
         }
 
+        [AllowAnonymous]
         [HttpGet("not-found")]
         public ActionResult<AppUser> GetNotFound()
         {
@@ -30,6 +31,7 @@ namespace API.Controllers
             return Ok(thing);
         }
 
+        [AllowAnonymous]
         [HttpGet("server-error")]
         public ActionResult<string> GetServerError()
         {
@@ -41,6 +43,7 @@ namespace API.Controllers
 
         }
 
+        [AllowAnonymous]
         [HttpGet("bad-request")]
         public ActionResult<string> GetBadRequest()
         {
