@@ -35,7 +35,7 @@ export class MessageService {
 
     this.hubConnection.on('NewMessage', message => {
       this.messageThread$.pipe(take(1)).subscribe(messages => {
-        this.messageThreadSource.next([...messages, message])
+        this.messageThreadSource.next([...messages, message]);
       })
     });
 
@@ -47,7 +47,7 @@ export class MessageService {
               message.dateRead = new Date(Date.now());
             }
           })
-          this.messageThreadSource.next([...messages])
+          this.messageThreadSource.next([...messages]);
         })
       }
 
@@ -57,6 +57,7 @@ export class MessageService {
 
   stopHubConnection() {
     if (this.hubConnection) {
+      this.messageThreadSource.next([]);
       this.hubConnection.stop();
     }
   }

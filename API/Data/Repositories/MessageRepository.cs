@@ -107,7 +107,11 @@ namespace API.Data.Repositories
             //mark them as read
             if (unreadMessages.Any())
             {
-                unreadMessages.ForEach(m => m.DateRead = DateTime.UtcNow);
+                //unreadMessages.ForEach(m => m.DateRead = DateTime.UtcNow);
+                foreach (var message in unreadMessages)
+                {
+                    message.DateRead = DateTime.UtcNow;
+                }
             }
 
             return messages;

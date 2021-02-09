@@ -370,7 +370,8 @@ namespace API.Data.Migrations
                 {
                     b.HasOne("API.Entities.Group", null)
                         .WithMany("Connections")
-                        .HasForeignKey("GroupName");
+                        .HasForeignKey("GroupName")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("API.Entities.Message", b =>
